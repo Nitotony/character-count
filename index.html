@@ -1,0 +1,105 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character counter</title>
+    <style>
+        *{
+            border: 0px;
+            margin: 0px;
+            font-size: large;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(228, 189, 215);
+            padding:50px;
+            width:600px;
+            height: 300px;
+            border-top: 5px solid  red;
+            border-bottom: 5px solid red;
+            margin: 100px auto;
+        }
+        textarea{
+            width: 600px;
+            height: 200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 5px;
+        }
+
+        #remain{
+            color: red;
+        }
+
+        .counts{
+            display: flex;
+            padding: 20px 0px;
+            
+                flex-direction: row;
+    justify-content: space-between;
+        }
+        h2{
+            font-size: larger;
+            padding: 10px 0px;
+            text-align: left;
+        }
+    </style>
+</head>
+<script>
+  
+    const counter = () => {
+        const textarea = document.getElementById('tex');
+        let count = textarea.value.length;
+
+        
+        document.getElementById('count').innerHTML = count;
+
+      
+        document.getElementById('remain').innerHTML = 50 - count;
+
+
+        if(count>50){
+            alert('maximum limit is 50');
+            document.getElementById('count').innerHTML = 0;
+
+      
+        document.getElementById('remain').innerHTML = 50;
+
+        }
+
+
+        
+    }
+</script>
+<body>
+    <div class="container">
+        <div>
+            <h2>Real - Time Character Counter</h2>
+        </div>
+     
+        <textarea name="main" id="tex" placeholder="Please write your text here..." oninput="counter()"></textarea>
+
+        <div class="counts">
+            <div >
+                <span>Total Characters</span>
+                <span id="count">0</span>
+            </div>
+            <div>
+                <span>
+                    Remaining:
+                </span>
+                <span id="remain">50</span>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
